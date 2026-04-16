@@ -1,8 +1,5 @@
 const authService = require('../services/authService');
 
-/**
- * POST /api/auth/login
- */
 function login(req, res) {
   try {
     const { username, password } = req.body;
@@ -18,9 +15,6 @@ function login(req, res) {
   }
 }
 
-/**
- * GET /api/auth/me
- */
 function getProfile(req, res) {
   try {
     const user = authService.getProfile(req.user.id);

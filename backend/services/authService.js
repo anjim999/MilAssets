@@ -6,9 +6,6 @@ require('dotenv').config();
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_key';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
 
-/**
- * Authenticate user and return JWT token
- */
 function login(username, password) {
   const user = db.prepare(
     `SELECT u.id, u.username, u.password_hash, u.full_name, u.role, u.base_id, b.name as base_name
@@ -52,9 +49,6 @@ function login(username, password) {
   };
 }
 
-/**
- * Get current user profile
- */
 function getProfile(userId) {
   const user = db.prepare(
     `SELECT u.id, u.username, u.full_name, u.role, u.base_id, b.name as base_name, u.created_at

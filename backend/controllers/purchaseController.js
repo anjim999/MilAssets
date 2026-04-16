@@ -1,8 +1,5 @@
 const purchaseService = require('../services/purchaseService');
 
-/**
- * GET /api/purchases
- */
 function getPurchases(req, res) {
   try {
     const filters = {
@@ -18,9 +15,6 @@ function getPurchases(req, res) {
   }
 }
 
-/**
- * POST /api/purchases
- */
 function createPurchase(req, res) {
   try {
     const { base_id, equipment_type_id, quantity, unit_price, supplier, purchase_date, notes } = req.body;

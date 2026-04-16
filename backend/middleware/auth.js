@@ -3,9 +3,6 @@ require('dotenv').config();
 
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_key';
 
-/**
- * Authentication middleware - verifies JWT token
- */
 function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
 

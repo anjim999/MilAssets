@@ -1,16 +1,4 @@
-/**
- * Role-Based Access Control Middleware
- * 
- * Roles:
- *   admin            - Full access to all bases and operations
- *   base_commander   - Full access to their assigned base
- *   logistics_officer - Access to purchases and transfers for their base
- */
 
-/**
- * Restrict access to specific roles
- * @param  {...string} allowedRoles - Roles that can access this route
- */
 function requireRole(...allowedRoles) {
   return (req, res, next) => {
     if (!req.user) {
@@ -29,11 +17,6 @@ function requireRole(...allowedRoles) {
   };
 }
 
-/**
- * Middleware to scope queries by base_id for non-admin users.
- * Admin users can access all bases.
- * Base commanders and logistics officers are restricted to their base.
- */
 function scopeToBase(req, res, next) {
   if (req.user.role === 'admin') {
     // Admin can access all bases - base_id comes from query/body

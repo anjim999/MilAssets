@@ -1,9 +1,5 @@
 const db = require('../config/db');
 
-/**
- * Get dashboard summary metrics
- * Opening Balance, Closing Balance, Net Movement, Assigned, Expended
- */
 function getSummary(filters = {}) {
   const { base_id, equipment_type_id, start_date, end_date } = filters;
 
@@ -106,9 +102,6 @@ function getSummary(filters = {}) {
   };
 }
 
-/**
- * Get movement details (for Net Movement popup)
- */
 function getMovementDetails(filters = {}) {
   const { base_id, equipment_type_id, start_date, end_date } = filters;
   const endDt = end_date || new Date().toISOString().split('T')[0];

@@ -1,8 +1,5 @@
 const assignmentService = require('../services/assignmentService');
 
-/**
- * GET /api/assignments
- */
 function getAssignments(req, res) {
   try {
     const filters = {
@@ -17,9 +14,6 @@ function getAssignments(req, res) {
   }
 }
 
-/**
- * POST /api/assignments
- */
 function createAssignment(req, res) {
   try {
     const { base_id, equipment_type_id, assigned_to, quantity, assignment_date, notes } = req.body;
@@ -44,9 +38,6 @@ function createAssignment(req, res) {
   }
 }
 
-/**
- * PUT /api/assignments/:id/return
- */
 function returnAssignment(req, res) {
   try {
     const result = assignmentService.returnAssignment(req.params.id);

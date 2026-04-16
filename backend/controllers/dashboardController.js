@@ -1,8 +1,5 @@
 const dashboardService = require('../services/dashboardService');
 
-/**
- * GET /api/dashboard/summary
- */
 function getSummary(req, res) {
   try {
     const filters = {
@@ -18,9 +15,6 @@ function getSummary(req, res) {
   }
 }
 
-/**
- * GET /api/dashboard/movement-details
- */
 function getMovementDetails(req, res) {
   try {
     const filters = {

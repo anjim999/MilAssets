@@ -1,8 +1,5 @@
 const transferService = require('../services/transferService');
 
-/**
- * GET /api/transfers
- */
 function getTransfers(req, res) {
   try {
     const filters = {
@@ -19,9 +16,6 @@ function getTransfers(req, res) {
   }
 }
 
-/**
- * POST /api/transfers
- */
 function createTransfer(req, res) {
   try {
     const { from_base_id, to_base_id, equipment_type_id, quantity, transfer_date, status, notes } = req.body;

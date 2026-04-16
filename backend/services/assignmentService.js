@@ -1,8 +1,5 @@
 const db = require('../config/db');
 
-/**
- * Get assignments with filters
- */
 function getAssignments(filters = {}) {
   const { base_id, equipment_type_id, status } = filters;
 
@@ -37,9 +34,6 @@ function getAssignments(filters = {}) {
   return db.prepare(query).all(...params);
 }
 
-/**
- * Create a new assignment
- */
 function createAssignment(data) {
   const { base_id, equipment_type_id, assigned_to, quantity, assignment_date, notes, created_by } = data;
 
@@ -51,9 +45,6 @@ function createAssignment(data) {
   return { id: result.lastInsertRowid, ...data };
 }
 
-/**
- * Return an assignment (mark as returned)
- */
 function returnAssignment(id) {
   const today = new Date().toISOString().split('T')[0];
   db.prepare(

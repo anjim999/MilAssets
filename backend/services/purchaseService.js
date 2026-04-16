@@ -1,8 +1,5 @@
 const db = require('../config/db');
 
-/**
- * Get purchases with filters
- */
 function getPurchases(filters = {}) {
   const { base_id, equipment_type_id, start_date, end_date } = filters;
 
@@ -41,9 +38,6 @@ function getPurchases(filters = {}) {
   return db.prepare(query).all(...params);
 }
 
-/**
- * Create a new purchase
- */
 function createPurchase(data) {
   const { base_id, equipment_type_id, quantity, unit_price, supplier, purchase_date, notes, created_by } = data;
 

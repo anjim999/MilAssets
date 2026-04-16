@@ -1,8 +1,5 @@
 const db = require('../config/db');
 
-/**
- * Get expenditures with filters
- */
 function getExpenditures(filters = {}) {
   const { base_id, equipment_type_id, start_date, end_date } = filters;
 
@@ -41,9 +38,6 @@ function getExpenditures(filters = {}) {
   return db.prepare(query).all(...params);
 }
 
-/**
- * Create a new expenditure
- */
 function createExpenditure(data) {
   const { base_id, equipment_type_id, quantity, expenditure_date, reason, notes, created_by } = data;
 

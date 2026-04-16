@@ -1,8 +1,5 @@
 const db = require('../config/db');
 
-/**
- * Get transfers with filters
- */
 function getTransfers(filters = {}) {
   const { base_id, equipment_type_id, start_date, end_date, status } = filters;
 
@@ -47,9 +44,6 @@ function getTransfers(filters = {}) {
   return db.prepare(query).all(...params);
 }
 
-/**
- * Create a new transfer
- */
 function createTransfer(data) {
   const { from_base_id, to_base_id, equipment_type_id, quantity, transfer_date, status, notes, created_by } = data;
 

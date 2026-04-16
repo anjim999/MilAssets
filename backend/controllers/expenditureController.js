@@ -1,8 +1,5 @@
 const expenditureService = require('../services/expenditureService');
 
-/**
- * GET /api/expenditures
- */
 function getExpenditures(req, res) {
   try {
     const filters = {
@@ -18,9 +15,6 @@ function getExpenditures(req, res) {
   }
 }
 
-/**
- * POST /api/expenditures
- */
 function createExpenditure(req, res) {
   try {
     const { base_id, equipment_type_id, quantity, expenditure_date, reason, notes } = req.body;

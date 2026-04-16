@@ -1,9 +1,5 @@
 const db = require('../config/db');
 
-/**
- * Audit Logger Middleware
- * Logs all mutating API requests (POST, PUT, DELETE) to the audit_logs table.
- */
 function auditLogger(action, entityType) {
   return (req, res, next) => {
     // Store original json method to intercept response
@@ -43,9 +39,6 @@ function auditLogger(action, entityType) {
   };
 }
 
-/**
- * Get audit logs (for admin viewing)
- */
 function getAuditLogs(filters = {}) {
   let query = `
     SELECT al.id, al.action, al.entity_type, al.entity_id, al.details,
